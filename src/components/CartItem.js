@@ -1,15 +1,22 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
 import styled from "styled-components";
+
+import { removeItem } from '../actions';
 
 import { AiOutlineClose } from "react-icons/ai"
 
-function CartItem({ title, quantity }) {
+function CartItem({ id, title, quantity }) {
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <Item>
         <Top>
             <h3>{title}</h3>
-            <AiOutlineClose />
+            <CloseButton
+              onClick={() => dispatch(removeItem({ id }))}
+            />
         </Top>
         <Bottom>
           <span className="label">Quantity:</span>
@@ -58,6 +65,10 @@ const Quantity = styled.span`
   font-weight: bold;
   font-size: 20px;
   border-bottom: 3px solid white;
+`;
+
+const CloseButton = styled(AiOutlineClose)`
+  cursor: pointer;
 `;
 
 export default CartItem;

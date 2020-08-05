@@ -14,8 +14,6 @@ function Cart() {
 
   totalPrice = totalPrice / 100;
 
-  console.log(storeItems)
-
   return (
     <Wrapper>
       <Head>
@@ -26,6 +24,7 @@ function Cart() {
         return (
           <CartItem
             key={item.id}
+            id={item.id}
             title={item.title}
             quantity={item.quantity}
           />

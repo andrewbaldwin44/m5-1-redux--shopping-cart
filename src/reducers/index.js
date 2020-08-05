@@ -1,6 +1,8 @@
 const initialState = {};
 
 export default function cartReducer(state = initialState, action) {
+  const stateCopy = {...state};
+
   switch (action.type) {
     case 'ADD_ITEM': {
       const quantity = state[action.item.id]
@@ -13,6 +15,13 @@ export default function cartReducer(state = initialState, action) {
           ...action.item,
           quantity: quantity,
         }
+      }
+    }
+    case 'REMOVE_ITEM': {
+      delete stateCopy[action.item.id];
+
+      return {
+        ...stateCopy
       }
     }
     default:

@@ -1,4 +1,9 @@
 export const addItem = item => ({
   type: 'ADD_ITEM',
-  item,
+  item
 });
+
+export const removeItem = item => ({
+  type: 'REMOVE_ITEM',
+  item
+})
