@@ -3,17 +3,17 @@ import styled from "styled-components";
 
 import { AiOutlineClose } from "react-icons/ai"
 
-function CartItem() {
+function CartItem({ title, quantity }) {
   return (
     <Wrapper>
       <Item>
         <Top>
-            <h3>GOOD KITTY</h3>
+            <h3>{title}</h3>
             <AiOutlineClose />
         </Top>
         <Bottom>
           <span className="label">Quantity:</span>
-          <Quantity>1</Quantity>
+          <Quantity>{quantity}</Quantity>
         </Bottom>
       </Item>
     </Wrapper>
