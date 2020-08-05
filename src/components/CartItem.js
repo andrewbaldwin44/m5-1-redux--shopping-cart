@@ -30,11 +30,7 @@ function CartItem({ id, title, quantity }) {
           <span className="label">Quantity:</span>
           <Quantity
             type="number"
-            placeholder={quantity}
-            onFocus={event => event.target.placeholder = ''}
-            onBlur={event => {
-              if (!event.target.value) event.target.placeholder = quantity;
-            }}
+            value={quantity}
             onInput={handleQuantityChange}
           />
         </Bottom>
